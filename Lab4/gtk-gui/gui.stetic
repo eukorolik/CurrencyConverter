@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+  </configuration>
+  <import>
+    <widget-library name="../bin/Debug/Lab4.exe" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="800 400">
+    <property name="MemberName" />
+    <property name="WidthRequest">800</property>
+    <property name="HeightRequest">400</property>
+    <property name="Title" translatable="yes">Конвертер валют</property>
+    <property name="Icon">file:./icons/dollar-icon.png</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="Resizable">False</property>
+    <property name="DefaultWidth">800</property>
+    <property name="DefaultHeight">400</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.Fixed" id="Window">
+        <property name="MemberName" />
+        <property name="HeightRequest">100</property>
+        <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.ComboBox" id="FromCurrency">
+            <property name="MemberName" />
+            <property name="WidthRequest">300</property>
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">Рубли
+Евро
+Доллары</property>
+            <property name="Active">0</property>
+            <signal name="Changed" handler="OnFromCurrencyChanged" />
+          </widget>
+          <packing>
+            <property name="X">50</property>
+            <property name="Y">50</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="ToCurrency">
+            <property name="MemberName" />
+            <property name="WidthRequest">300</property>
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">Рубли
+Евро
+Доллары</property>
+            <property name="Active">1</property>
+            <signal name="Changed" handler="OnToCurrencyChanged" />
+          </widget>
+          <packing>
+            <property name="X">450</property>
+            <property name="Y">50</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Image" id="ToArrow">
+            <property name="MemberName" />
+            <property name="Pixbuf">file:./icons/arrow-right.png</property>
+          </widget>
+          <packing>
+            <property name="X">375</property>
+            <property name="Y">45</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Image" id="ToForbidden">
+            <property name="MemberName" />
+            <property name="Visible">False</property>
+            <property name="Pixbuf">file:./icons/forbidden.png</property>
+          </widget>
+          <packing>
+            <property name="X">375</property>
+            <property name="Y">45</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Frame" id="MainFrame">
+            <property name="MemberName" />
+            <property name="WidthRequest">780</property>
+            <property name="HeightRequest">250</property>
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.Fixed" id="FrameField">
+                <property name="MemberName" />
+                <property name="HeightRequest">100</property>
+                <property name="HasWindow">False</property>
+                <child>
+                  <widget class="Gtk.Entry" id="FromInputLabel">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">250</property>
+                    <property name="CanFocus">True</property>
+                    <property name="IsEditable">True</property>
+                    <property name="InvisibleChar">●</property>
+                    <signal name="Changed" handler="OnFromInputLabelChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">50</property>
+                    <property name="Y">50</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="FromInput">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">&lt;b&gt;Исходная сумма&lt;/b&gt;</property>
+                    <property name="UseMarkup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">50</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Image" id="FromInputError">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="Pixbuf">file:./icons/forbiddenInput.png</property>
+                  </widget>
+                  <packing>
+                    <property name="X">305</property>
+                    <property name="Y">55</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Entry" id="ToInputLabel">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">250</property>
+                    <property name="CanFocus">True</property>
+                    <property name="IsEditable">False</property>
+                    <property name="InvisibleChar">●</property>
+                  </widget>
+                  <packing>
+                    <property name="X">450</property>
+                    <property name="Y">50</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="ToInput">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">&lt;b&gt;Конечная сумма&lt;/b&gt;</property>
+                    <property name="UseMarkup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">450</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Button" id="ConvertButton">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">300</property>
+                    <property name="HeightRequest">80</property>
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextOnly</property>
+                    <property name="Label">Конвертировать</property>
+                    <property name="UseUnderline">True</property>
+                    <property name="FocusOnClick">False</property>
+                    <signal name="Clicked" handler="OnConverButtonClicked" />
+                  </widget>
+                  <packing>
+                    <property name="X">230</property>
+                    <property name="Y">110</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Image" id="ConvertButtonIcon">
+                    <property name="MemberName" />
+                    <property name="Pixbuf">file:./icons/icon_convert.png</property>
+                  </widget>
+                  <packing>
+                    <property name="X">255</property>
+                    <property name="Y">125</property>
+                  </packing>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="Frame">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">&lt;b&gt;Калькулятор валют&lt;/b&gt;</property>
+                <property name="UseMarkup">True</property>
+              </widget>
+              <packing>
+                <property name="type">label_item</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="X">10</property>
+            <property name="Y">120</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>
